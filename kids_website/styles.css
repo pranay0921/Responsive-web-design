@@ -1,0 +1,1033 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Handlee", cursive;
+}
+p{
+    font-family: "Nunito", sans-serif;
+}
+button{
+    font-family: "Nunito", sans-serif;
+}
+ul{
+    list-style: none;
+}
+
+/* header*/
+header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+h2{
+    letter-spacing: 1px;
+    margin-top: 2px;
+}
+ .header-ul {
+  display: flex;
+  gap: 10px;
+  margin: 12px 12px;
+}
+.home{
+    color: aqua;
+}
+button{
+    padding: 10px;
+    padding-left:15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    background-color: rgb(4, 158, 158);
+    color: white;
+    border: none;
+}
+
+/* hero */
+.hero{
+    margin: 10px 10px;
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(4, 158, 158);
+    color: white;
+}
+.left-h{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+.left-h h3{
+    margin-top: 5px;
+    font-family: "Handlee", cursive;
+}
+.left-h h1{
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: "Handlee", cursive;
+}
+.left-h p{
+      font-family: "Nunito", sans-serif;
+}
+.left-h button{
+    background-color: rgb(48, 48, 84);
+    margin-top: 15px;
+    
+}
+.right-h img{
+    width: 100%;
+    height: 250px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* category-cards */
+.category{
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    justify-content: center;
+    gap: 15px;
+    margin: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.cards{
+    width: 90%;
+    height: 120px;
+    background-color: lightblue;
+    border-radius: 10px;
+    text-align: center;
+}
+.card-i{
+    display: inline-flex;
+    justify-content: center;
+    gap:10px;
+    margin-top: 5px;
+}
+.cards h3{
+    margin: 5px;
+}
+
+/* learn about */
+.about{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap:50px
+}
+.about-img{
+    width: 100%;
+}
+.about-img img{
+    width: 100%;
+   
+    object-fit: cover;
+    border-radius: 8px;
+}
+.about-us{
+    width: 100%;
+}
+.about-us h3{
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap:10px;
+    letter-spacing: 1px;
+}
+.about-us h2{
+    font-size: 30px;
+}
+.about-us p{
+    font-size: 16px;
+    color: #666;
+    line-height: 1.8;
+}
+.about-details{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin: 30px 0;
+}
+.about-details img{
+    width: 195px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.checkbox{
+    width: 100%;
+}
+
+.checkbox label{
+    display: block;
+    padding:12px 5px;
+    margin: 0;
+    border-top: 1px solid lightgray;
+    font-size: 15px;
+}
+.about-us button{
+    margin-top: 10px;
+}
+
+/* pop-clases */
+.pop-clss{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+}
+
+.pop-title h3{
+    font-size: 12px;
+    margin-top: 20px;
+}
+.pop-title h2{
+    font-size: 20px;
+    margin: 10px 10px;
+}
+.class-3{
+    width: 75%;
+    background-color: whitesmoke;
+    border-radius: 8px;
+    margin-bottom: 3%;
+    
+    display: flex;
+   flex-direction: column;
+
+}
+.class-3 img{
+    width: 100%;
+    height: 320px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-bottom: 10px;
+}
+.class-3 h3,.class-3 p{
+    margin-bottom: 12px;
+}
+/* .class-3 table{
+    margin-bottom: 10px;
+    border: 2px solid #706363;
+} */
+.class-3 td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    color: #777;
+}
+.class-3 td:first-child {
+    border-right: 1px solid #ddd;
+}
+
+.class-3 button{
+    margin: 20px 10px;
+}
+
+/* book */
+.book{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.b-seat{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85%;
+    /* height: 220px; */
+    margin: 10px 10px;
+}
+.ch-book label{
+    display: block;
+}
+
+.f-book{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #20a4b8;
+    margin-bottom: 10px;
+    /* flex-wrap: wrap; */
+    width: 56%;
+}
+
+.b-seat h3{
+    color: rgb(4, 158, 158);;
+    font-size: 12px;
+}
+.b-seat h2{
+    font-size: 20px;
+    margin: 10px 10px;
+}
+.b-seat p{
+    margin-bottom: 10px;
+}
+.ch-book label{
+    margin-bottom: 5px;
+}
+
+.f-book h2{
+    padding:5px 5px;
+   width: 100%;
+    background-color: #03475b;
+    color: white;
+    text-align: center;
+    /* border-radius: 5px; */
+}
+
+#name{
+    margin-top: 10%;
+    /* font-size: 10px; */
+}
+.f-book input::placeholder {
+    font-size: 10px;
+}
+
+#drop{
+    font-size: 10px;
+    padding: 3%;
+    /* padding-left: 20%;
+    padding-right: 15%; */
+}
+
+#drop{
+    margin-bottom: 20%;
+}
+
+.f-book button{
+    margin-bottom: 10px;
+}
+
+/* teaccher */
+.teacher{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.t-title{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.t-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.t-profile img{
+   width: 100%;
+   height: 220px;
+   border-radius: 50%;
+   object-fit: cover;
+}
+.t-title h3{
+    margin: 10px 10px;
+    color: #20a4b8;
+    font-size: 12px;
+}
+.t-title h2{
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.t-profile h4{
+    margin: 5px 5px;
+}
+
+/* parent p-say */
+.p-say{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.p-title{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.p-title h3{
+    margin: 10px 10px;
+    color: #20a4b8;
+    font-size: 16px;
+} 
+.p-title h2{
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+.p-div{
+    width:90%;
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-sizing: border-box;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.p-profile{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.p-profile img{
+    width:55px; 
+    height:55px;
+    border-radius: 50%;
+    object-fit: cover;   
+}
+
+.p-info{
+    margin-left: 15px;
+}
+.p-info p{
+    margin:0;
+    color:#777;
+    font-size:13px;
+    font-style:italic;
+}
+
+/* blog */
+
+.blog{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.blog-info{
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+    width: 85%;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+}
+.blog-info img{
+    width: 50%;
+    height: 100px;
+    border-radius: 6px;
+}
+.b-icon{
+    display: flex;
+    justify-content: space-between;
+    gap:30px;
+    margin:10px 10px;
+}
+.b-icon i{
+    margin-right: 5px;
+}
+.blog-title h2{
+    margin-bottom: 20px;
+}
+.blog-info h4{
+    margin-top: 10px;
+}
+.blog-info button{
+    margin: 10px 20px;
+}
+
+/* footer */
+footer{
+    background-color: #03475b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:#ddd;
+    margin: 0;
+}
+.kid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+#kid-title{
+    margin-top: 15px;
+}
+.kid h3{
+    font-size: 23px;
+    margin: 0 0 15px;   
+}
+.kid li {
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+
+.get {
+    width: 100%;
+}
+
+.get-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    width: 100%;
+}
+
+.get-contact li {
+    margin: 0;
+    padding: 0;
+}
+
+.get-contact span {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.get-contact i{
+    margin-right: 5px;
+}
+.get-contact p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.quick-link{
+    list-style: none;
+    justify-content: center;
+    /* gap: 5px; */
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.quick-link li{
+    margin-bottom: 2px;
+    font-size: 15px;
+}
+
+.kid label {
+    width: 100%;
+}
+
+
+.kid input{
+    width:50%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    margin-bottom: 14px;
+    border:none;
+    border-radius: 5px;
+    font-size:14px;
+    outline:none;
+}
+.quick-link i{
+    margin-right: 4px;
+}
+
+
+@media (min-width: 1024px) {
+
+    /* header */
+    header{
+        /* display: flex;
+        justify-content: space-between; */
+        flex-direction: row;
+        /* align-items: center; */
+    }
+    .header ul{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        margin: 10px 10px;
+    }
+   header h2{
+    margin-left: 10px;
+    font-size: 40px;
+    margin-top: 10px;
+   }
+   .header-ul {
+    gap:25px;
+    font-size: 20px;
+   }
+   .header button{
+    margin-right: 25px;
+    padding-right:20px;
+    padding-left: 20px;
+   }
+
+   .hero{
+    flex-direction: row;
+    border-radius: 2px;
+   }
+   .left-h{
+    width: 55%;
+    }
+    .left-h h3{
+        font-size: 20px;
+    }
+
+    .left-h h1{
+        font-size: 30px;
+    }
+    .left-h p{
+        margin-left: 10px;
+    }
+    .left-h button{
+        padding-left: 35px;
+        padding-right: 35px;
+        font-size: 15px;
+    }
+    .right-h img{
+        height: 300px;
+    }
+    .right-h{
+        margin-right: 15%;
+    }
+
+    /* category */
+    .category{
+        flex-direction: row;
+    }
+    .cards{
+        width: 30%;
+    }
+
+       /*learn about */
+    
+    .about{
+        flex-direction: row;
+        gap: 30px;
+    }
+    .about-img img{
+        /* width: 50%; */
+        height: 500px;
+    }
+    .about-us h3{
+        margin-top: 50px;        
+    }
+    .about-details {
+        margin-top: 5px;
+    }
+    .about-us p{
+        font-size: 13px;
+    }
+
+    .about-us button{
+        margin-top: 0px;
+        margin-bottom: 20px;
+        padding: 5px;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 15px;
+    }
+    .checkbox label{
+        font-size: 13px;
+    }
+
+    .about-details{
+        margin: 10px;
+       
+    }
+
+    /* pop-clss */
+    .pop-title{
+        text-align: center;
+    width: 100%;
+    }
+    .pop-title h3{
+        font-size: 15px;
+        letter-spacing: 1px;
+        word-spacing: 3px;
+    }
+    .pop-title h2{
+        letter-spacing: 1px;
+        word-spacing: 2px;
+        font-size: 28px;
+    }
+    .class-3{
+        width: 30%;
+        margin-right: 10px;
+    }
+
+    /* book */
+    .book{
+    flex-direction: row;
+    }
+    .b-seat h3{
+        letter-spacing: 2px;
+        font-size: 13px;
+    }
+    .b-seat h2{
+        word-spacing: 2px;
+    }
+    .f-book h2{
+        margin-top: 0;
+       
+    }
+    
+
+    /* Teacher */
+.teacher {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 40px 0;
+}
+.t-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.t-title h3 {
+    margin: 10px 0;
+    color: #20a4b8;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.t-title h2 {
+    margin: 0 0 35px;
+    font-size: 28px;
+}
+.t-profiles {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 35px;
+    width: 90%;
+}
+.t-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    width: 200px;
+}
+
+.t-profile img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.t-profile h4 {
+    margin: 12px 5px 5px;
+    font-size: 18px;
+}
+
+.t-profile p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.p-say {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    padding: 40px 0;
+}
+
+
+/* TITLE */
+
+.p-title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.p-title h3 {
+    margin: 10px 0;
+    color: #20a4b8;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.p-title h2 {
+    margin: 0;
+    font-size: 28px;
+}
+
+
+/* TESTIMONIAL CARD */
+
+.p-div {
+    width: 28%;
+    background-color: #f8f9fa;
+
+    padding: 20px;
+    margin: 0 10px 25px;
+
+    box-sizing: border-box;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+/* CARD TEXT */
+
+.p-div > p {
+    margin: 0;
+    line-height: 1.6;
+    font-size: 14px;
+    color: #555;
+}
+
+
+/* PROFILE */
+
+.p-profile {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+/* PROFILE IMAGE */
+
+.p-profile img {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+    object-fit: cover;
+}
+.p-info {
+    margin-left: 15px;
+}
+
+.p-info h4 {
+    margin: 0 0 5px;
+    font-size: 16px;
+}
+
+.p-info p {
+    margin: 0;
+    color: #777;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* blog */
+.blog {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.blog-title {
+    width: 100%;
+}
+.blog-info {
+    width: 30%;
+}
+.blog-info p{
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+
+.blog-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+/* footer */
+footer {
+    display: flex;
+    flex-direction: row;
+}
+
+.kid {
+    width: 22%;
+    margin-top:0 ;
+    
+}
+.kid h3{
+    margin-top: 20px;
+}
+.get h3{
+    margin-top: 30px;
+}
+#Kid-title{
+    letter-spacing: 1px;
+}
+#newsL{
+    letter-spacing: 1px;
+}
+}
+
+@media (min-width: 768px){
+ header {
+    flex-direction: row;
+}
+    .hero {
+    flex-direction: row;
+}
+.left-h {
+    width: 50%;
+    align-items: flex-start;
+    margin-left: 10px;
+}
+.right-h img {
+    height: 350px;
+    object-fit: cover;
+}
+/* category */
+.category {
+    margin-left: 5%;
+    margin-right: 5%;
+    gap: 20px;
+}
+.cards {
+    width: 45%;
+    height: 150px;
+}
+
+/* about */
+.about {
+    flex-direction: row;
+}
+.about-img {
+    width: 45%;
+}
+
+.about-us {
+    width: 55%;
+}
+
+/* pop-clss */
+   .pop-clss {
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .pop-title {
+        width: 100%;
+        text-align: center;
+
+    }
+
+    .pop-title h3 {
+        font-size: 14px;
+    }
+
+    .pop-title h2 {
+        font-size: 26px;
+    }
+
+    .class-3 {
+        width: 30%;
+        margin-bottom: 20px;
+    }
+
+    .class-3 img {
+        height: 250px;
+    }
+
+    /* book */
+    .book {
+    flex-direction: row;
+}
+.b-seat {
+    width: 45%;
+}
+.f-book {
+    width: 45%;
+}
+
+/* teacher */
+/* .t-profiles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.t-profile {
+    width: 40%;
+}
+.t-profile img {
+    width: 180px;
+    height: 180px;
+} */
+
+
+.p-say {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.p-title {
+    width: 100%;
+}
+.p-div {
+    width: 31%;
+}
+
+/* blog */
+
+.blog {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.blog-title {
+    width: 100%;
+    text-align: center;
+}
+
+.blog-info {
+    width: 33%;
+}
+
+/* footer */
+footer {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.kid {
+    width: 45%;
+    text-align: left;
+    align-items: flex-start;
+}
+#kid-title{
+    letter-spacing: 1px;
+    font-size: 28px;
+}
+.get h3{
+    margin-top: 20px;
+    font-size: 28px;
+}
+.kid h3{
+    font-size: 28ox;
+}
+}
+
