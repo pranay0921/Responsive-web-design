@@ -1,0 +1,683 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+nav{
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    padding: 1%;  
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+nav ul{
+    display: flex;
+    text-decoration: none;
+    gap:30px;
+    list-style: none;
+    margin-top: 10px;
+}
+
+nav ul li a{
+    text-decoration: none;
+     color: white;
+}
+#home{
+    color: red;
+}
+.icon{
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* hero */
+.hero{
+    background-image: url(assets/hero-bg.jpg);
+    min-height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.h-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: white;
+    text-align: center;
+}
+.h-content p{
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: aliceblue;
+}
+.h-btn button{
+    color: aliceblue;
+    background-color: transparent;
+    margin-right: 5px;
+    margin-top: 30px;
+    padding: 12px;
+    border: 1px solid transparent;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+.h-btn button:hover{
+    color: red;
+    border:1px solid red;
+}
+
+.new{
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.left-new{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+   
+}
+.left-new button{
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    background-color: orangered;
+    padding: 1%;
+    border-radius: 2px;
+    border: none;
+    width: 90%;
+    font-size: 18px;
+}
+.right-new{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.right-new h4{
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.right-new p{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+span{
+    font-size: 14px;
+    font-weight: 300;
+    color: lightgrey;
+}
+.left-new h4{
+      font-size: 24px;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+.left-new p{
+    margin-bottom: 10px;
+    color: lightgrey;
+    font-size: 16px;
+}
+.left-new h6{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+
+.team{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+} 
+
+.t-left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin:20px ;
+}
+
+.t-right{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+.trainer{
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 10px;
+    width: 320px;
+}
+.t-img img{
+    width: 100%;
+}
+
+.t-left h4{
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+.f-p {
+    margin-bottom: 10px;
+}
+.t-content{
+    display: flex;
+    justify-content: space-between;
+        padding-top: 2%;
+    padding-bottom: 2%;
+}
+.t-trainer h5{
+    margin-left: 5px;
+    font-size: 20px;
+}
+.t-trainer {
+    margin-left: 5px;
+    font-size: 16px;
+}
+.t-icon{
+    display: flex;
+    flex-direction: column;
+}
+.t-icon i{
+    margin-right: 15px;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+.t-trainer{
+    padding-bottom: 25px;
+}
+
+
+/* training clss class */
+
+.training-class{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.class-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.class-title h3{
+    font-size: 30px;
+}
+.class-title p{
+    font-size: 18px;
+}
+
+.class-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 75%;
+    padding-bottom: 20px;
+}
+.card-info h5{
+    font-size: 22px;
+    margin-top: 10px;
+    padding-right: 4%;
+}
+.card-title{
+  display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+.card-info{
+ display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.cls-price{
+      width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: orangered;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    margin: 0;
+}
+.class-content p{
+    margin-top: 5px;
+}
+
+
+
+
+
+/* find us location */
+.location{
+    display: flex;
+    flex-direction: column;
+    /* background-color: lightblue; */
+}
+.L-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.L-form form{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+}
+.L-form form label{
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+.L-form form textarea{
+    padding: 1%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.L-form form input{
+    width: 100%;
+    padding: 1%;
+}
+.L-form form button{
+    padding: 1%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 16px;
+}
+.L-form h3{
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+    font-size: 30px;
+    font-weight: 800;
+}
+.R-location{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5%;
+}
+.R-location h3{
+    /* font-size: 40px; */
+    margin-bottom: 1.5%;
+    font-size: 30px;
+    font-weight: 500;
+}
+iframe{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+/* footer*/
+footer{
+    display: flex;
+    justify-content: space-between;
+    margin: 2%;
+    font-size: 12px;
+    
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+    gap:15px;
+}
+
+.schedule {
+    width: 100%;
+    background: rgb(31, 30, 30);
+    padding: 60px 15px;
+    color: white;
+    text-align: center;
+}
+
+.schedule > p {
+    color: grey;
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.schedule > h1 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 35px;
+    text-transform: capitalize;
+}
+
+.table {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.schedule-table {
+    width: 750px;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.schedule-table thead th {
+    height: 42px;
+    background: #f83b16;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    border-right: 1px solid #d83212;
+}
+
+.schedule-table thead .calendar {
+    width: 75px;
+}
+
+.schedule-table .time {
+    width: 75px;
+    height: 55px;
+    background: #f83b16;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    text-align: center;
+    border-bottom: 1px solid #d83212;
+}
+
+.schedule-table td {
+    height: 55px;
+    background: #171717;
+    border: 1px solid #222;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px;
+}
+
+.schedule-table td strong {
+    display: block;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.schedule-table td small {
+    display: block;
+    color: #777;
+    font-size: 9px;
+    white-space: nowrap;
+}
+
+
+
+
+@media (min-width: 768px){
+   nav{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+   } 
+   nav h2{
+    font-size: 24px;
+   }
+   nav ul {
+    font-size: 20px;
+    /* gap:15px */
+   }
+   .icon{
+    margin-right: 5px;
+    font-size: 18px;
+   }
+
+   
+    /* new left right */
+   .new{
+    flex-direction: row;
+    justify-content: center;
+    }
+    .left-new,.right-new{
+        width: 50%;
+        min-height: 350px;
+    }
+    .left-new{
+        padding: 3%;
+        margin-left: 25px;
+        margin-right: 25px;
+        /* padding: 30px 60px; */
+    }
+    .right-new{
+        padding: 30px 40px;
+    }
+     .left-new button {
+        width: 90%;
+        max-width: 400px;
+        margin-top: 5px;
+        padding: 1.5%;
+    }
+    .left-new h4{
+        font-size: 38px;
+    }
+    .right-new h4{
+        font-size: 38px;
+    }
+    .right-new p{
+        font-size: 20px;
+    }
+    
+    /* team trainer */
+    .team{
+        flex-direction: row;
+        gap:20px;
+    }
+    .t-right{
+        flex-direction: row;
+        gap: 10px;
+        width: 55%;
+    }
+    /* .t-left{
+        align-items: none;
+        text-align: none;
+        justify-content: first baseline;
+    } */
+    .t-left h4{
+        font-size: 30px;
+    }
+    
+/* training class */
+ .training-class {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .class-title {
+        width: 100%;
+    }
+
+    .class-card {
+        width: 29%;
+        margin-bottom: 0;
+    }
+
+/* location */
+    .location {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        gap: 30px;
+        padding: 30px 5%;
+    }
+
+    .L-form {
+        width: 50%;
+        margin-bottom: 0;
+    }
+
+    .L-form form {
+        width: 80%;
+    }
+
+    .R-location {
+        width: 50%;
+        margin: 0;
+    }
+
+    .R-location iframe {
+        width: 100%;
+        height: 350px;
+    }
+
+ .schedule {
+        padding: 70px 30px;
+    }
+
+    .schedule  p {
+        font-size: 15px;
+    }
+
+    .schedule > h1 {
+        font-size: 26px;
+        margin-bottom: 40px;
+    }
+
+    .table {
+        display: flex;
+        justify-content: center;
+        overflow-x: auto;
+    }
+
+    .schedule-table {
+        width: 850px;
+    }
+
+    .schedule-table thead th {
+        height: 45px;
+        font-size: 12px;
+    }
+
+    .schedule-table thead .calendar {
+        width: 85px;
+    }
+
+    .schedule-table .time {
+        width: 85px;
+        height: 58px;
+        font-size: 11px;
+    }
+
+    .schedule-table td {
+        height: 58px;
+    }
+
+    .schedule-table td strong {
+        font-size: 12px;
+    }
+
+    .schedule-table td small {
+        font-size: 10px;
+    }
+
+}
+
+
+@media (min-width:1024px) {
+     .hero h1{
+        font-size: 40px;
+        font-weight:bolder;
+    }    
+    .h-btn{
+        margin-top: 25px;
+    }
+    .h-btn button{
+        font-size: 18px;
+    }
+
+    nav h2{
+        font-size: 32px;
+    }
+    nav ul li{
+        font-size: 24px;
+    }
+    .icon{
+        font-size: 20px;
+    }
+
+.table {
+        width: 100%;
+        max-width: 800px;
+        margin: auto;
+        overflow: visible;
+    }
+
+    .schedule-table {
+        width: 100%;
+        table-layout: fixed;
+    }
+
+       .schedule-table thead th {
+        height: 40px;
+        font-size: 12px;
+    }
+
+    .schedule-table thead .calendar {
+        width: 74px;
+    }
+
+    .schedule-table .time {
+        width: 74px;
+        height: 56px;
+        font-size: 10px;
+    }
+
+    .schedule-table td {
+        height: 56px;
+    }
+
+     .schedule-table td strong {
+        font-size: 11px;
+    }
+
+    .schedule-table td small {
+        font-size: 9px;
+    }
+}
