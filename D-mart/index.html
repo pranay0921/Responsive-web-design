@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMart</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <img src="image/logo.svg" />
+        </div>
+
+        <div class="location">
+            <div>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>ShivajiNagar</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <small>Pune, India</small>
+        </div>
+
+        <div class="delivery">
+            <span>Earliest <b>Home Delivery</b> available</span>
+            <strong>
+                <i class="fa-regular fa-clock"></i>
+                Tomorrow 07:00 AM - 10:00 AM
+            </strong>
+        </div>
+
+        <div class="search-box">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search for"
+        aria-label="Search products">
+
+    <span id="placeholderText">Biscuits</span>
+
+    <button type="button">
+        SEARCH
+    </button>
+
+</div>
+
+        <!-- Login/Register: Navigate to the login page -->
+        <a class="login" href="login.html">
+            <i class="fa-regular fa-user"></i>
+            <span>Sign In / Register</span>
+        </a>
+
+        <div class="notification">
+            <i class="fa-regular fa-bell"></i>
+        </div>
+
+        <div class="cart">
+            <div class="cart-icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count">0</span>
+            </div>
+
+            <span class="cart-price">₹0</span>
+        </div>
+    </header>
+
+    <nav class="categories-nav">
+        <div class="all-categories">
+            <i class="fa-solid fa-bars"></i>
+            <span>All Categories</span>
+        </div>
+
+        <!-- Grocery Category: Link to the Add-to-Cart page -->
+        <a class="categories" href="add-to-cart.html">
+            DMart Grocery
+        </a>
+
+        <div class="categories">
+            Ready To Cook
+        </div>
+
+        <div class="categories">
+            Beverages
+        </div>
+
+        <div class="categories">
+            Biscuits & Cookies
+        </div>
+
+        <div class="categories">
+            Bath & Body
+        </div>
+
+        <div class="categories">
+            Detergent & Fabric Care
+        </div>
+
+        <div class="categories">
+            Cleaners
+        </div>
+
+    </nav>
+
+    <img id="image" src="https://cdn.dmart.in/images/rwd/banners/hmpg/1oct24-crsl-dg-pune.jpg"/>
+
+
+    <section class="popular-category" id="categories">
+
+    <div class="category-header">
+        <h2>Popular Categories</h2>
+        <a href="#">View All</a>
+    </div>
+
+    <div class="category-slider">
+
+        <button class="category-arrow category-prev" id="categoryPrev">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="category-viewport" id="categoryViewport">
+
+            <div class="category-track" id="categoryTrack">
+
+                <a href="#" class="category-card">
+                    <div class="category-image">
+                        <img src="image/move1.png" alt="Cloth">
+                    </div>
+                    <span>Cloth</span>
+                </a>
+
+                <a href="#" class="category-card">
+                    <div class="category-image">
+                        <img src="image/move2.png" alt="Fashion">
+                    </div>
+                    <span>Fashion</span>
+                </a>
+
+                <a href="#" class="category-card">
+                    <div class="category-image">
+                        <img src="image/move3.png" alt="Jackets">
+                    </div>
+                    <span>Jackets</span>
+                </a>
+
+                <a href="#" class="category-card">
+                    <div class="category-image">
+                        <img src="image/move4.png" alt="Kids Wear">
+                    </div>
+                    <span>Kids Wear</span>
+                </a>
+
+                <a href="#" class="category-card">
+                    <div class="category-image">
+                        <img src="image/move5.png" alt="Grocery">
+                    </div>
+                    <span>Grocery</span>
+                </a>
+
+                <a href="#" class="category-card">
+                    <div class="category-image">
+                        <img src="image/move6.png" alt="Beverages">
+                    </div>
+                    <span>Beverages</span>
+                </a>
+
+                <a href="#" class="category-card">
+                    <div class="category-image">
+                        <img src="image/move7.png" alt="Personal Care">
+                    </div>
+                    <span>Personal Care</span>
+                </a>
+
+                <a href="#" class="category-card">
+                    <div class="category-image">
+                        <img src="image/move8.png" alt="Home Care">
+                    </div>
+                    <span>Home Care</span>
+                </a>
+
+                <a href="#" class="category-card">
+                    <div class="category-image">
+                        <img src="image/Fresh Fruits.png" alt="Fresh Fruits">
+                    </div>
+                    <span>Fresh Fruits</span>
+                </a>
+
+                <a href="#" class="category-card">
+                    <div class="category-image">
+                        <img src="image/Fresh Vegetables.png" alt="Fresh Vegetables">
+                    </div>
+                    <span>Vegetables</span>
+                </a>
+
+            </div>
+        </div>
+
+        <button class="category-arrow category-next" id="categoryNext">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ganesh -->
+<section>
+    <div class="ganesh">
+        <img src="img/ganesh.jpg" alt="">
+    </div>
+</section>
+
+
+
+
+
+
+
+<section>
+    <div class="d-exclusive">
+        <img src="img/exclusive.jpg" alt="">
+    </div>
+</section>
+
+<!-- fruits and vegetables-->
+ <section class="FV">
+    <div class="fv-div">
+        <div class="fv-title">
+            <h2>Fruits & Vegetables</h2>
+        </div>
+        
+        <div class="fv-card">
+            <div class="fv-item">
+                <img src="img/Combo___Recipes-removebg-preview.png" alt="">
+                <h3>Fresh Fruit</h3>
+            </div>
+            <div class="fv-item">
+                <img src="img/Freshly_Cut.png" alt="">
+                <h3>Fresh Vegetsbles</h3>
+            </div>
+            <div class="fv-item">
+                <img src="img/capsicum.png" alt="">
+                <h3>Cuts & Exotic</h3>
+            </div>
+            <div class="fv-item">
+                <img src="img/Seasonal.png" alt="">
+                <h3>Everyday Seasonal</h3>
+            </div>
+        </div>
+    </div>
+
+ </section>
+
+ <!-- the gift store -->
+  <section>
+    <div class="gift-store">
+        <img src="img/gift.jpg" alt="">
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- footer -->
+    <footer>
+        <div class="popular-search">
+            <p>Popular Search</p>
+        </div>
+            <div class="ps-content">
+                <p>Product</p>
+                <P>: Milk| Cheese| Ketchup & Sauce| Pickles| Atta| Ready To Cook| Chips & Wafers| Oats| Green Tea| Cold Drinks| Skin Care| Body Lotions| Baby Powder| Bath Soaps| Hair Shampoos| Toothpaste| Diapers| Crockery Set| Tawas & Sauce Pans| Jar Container| Trolley bags| Bathroom Cleaners| Detergent Powder| Dishwash Liquids| Stationery Kits </P>
+            </div>
+
+            <div class="ps-content">
+                <p>Brands</p>
+                <p>: Amul| Pampers| Tata| Cadbury Dairy Milk| Fortune| Gemini| MTR| Harpic| Vim| Haldiram| Patanjali| Borosil| Bata| D Homes| Britannia| Parle| Everest| DMart Premia| Maggi| Ching's| Society| Gowardhan| Saffola| Nescafe| Horlicks| Tide| Lizol| Kinder Joy| Ferrero Rocher| McCain| Johnson's| Himalaya| Mamy Poko| Nivea| Vaseline| Philips| Kellogg's| Wonderchef| Joyo</p>
+            </div>
+
+            <div class="ps-content">
+                <p>Category</p>
+                <p>: Grocery| Dairy & Beverages| Packaged Food| Fruits & Vegetables| Home & Kitchen| Kitchen & Dining| Personal Care & Beauty| Sports & Fitness| Baby Care| Books| Stationery| Home Utility & Organisers| Electronics & Appliances| Footwear| Clothing & Accessories| Bags & More| Gifting| Seasonal & More</p>
+            </div>
+
+        
+    <!-- all category -->
+     <section class="footer-all-cat">
+        <div class="all-cat-title">
+            <p>All Category</p>
+        </div>
+        <div class="all-cat">
+<p>Grocery</p>
+<p>Dals</p>
+<p>Pulses</p>
+<p>Dry Fruits</p>
+<p>DMart Grocery</p>
+<p>Cooking Oil</p>
+<p>Ghee & Vanaspati</p>
+<p>Flours & Grains</p>
+<p>Rice & Rice Products</p>
+<p>Masala & Spices</p>
+<p>Salt / Sugar / Jaggery</p>
+
+<p>Dairy & Beverages</p>
+<p>Beverages</p>
+<p>Dairy</p>
+
+<p>Fruits & Vegetables</p>
+<p>Fresh Fruits</p>
+<p>Vegetables</p>
+
+<p>Home & Kitchen</p>
+<p>Detergent & Fabric Care</p>
+<p>Cleaners</p>
+<p>Utensil Cleaners</p>
+<p>Furniture & Decor</p>
+<p>Cookware</p>
+<p>Pooja Needs</p>
+<p>Kitchen & Dining</p>
+<p>Cookware Set</p>
+<p>Drinkware</p>
+<p>Shop By Room</p>
+
+<p>Packaged Food</p>
+<p>Biscuits & Cookies</p>
+<p>Snacks & Farsans</p>
+<p>Breakfast Cereals</p>
+<p>Chocolates & Candies</p>
+<p>Pasta & Noodles</p>
+<p>Ready to Cook</p>
+<p>Heathy Food</p>
+<p>Bakery</p>
+<p>Frozen Food</p>
+<p>Sweets</p>
+
+<p>Seasonal & More</p>
+<p>Gifting</p>
+<p>Festive Specials</p>
+
+<p>Bed & Bath</p>
+<p>Bedding</p>
+<p>Curtains</p>
+<p>Bedroom Storage</p>
+<p>Bath Accessories</p>
+
+<p>Electronics & Appliances</p>
+<p>Electronics & Accessories</p>
+<p>Home Appliances</p>
+<p>Kitchen Appliances</p>
+<p>Personal Care Appliances</p>
+
+<p>Clothing & Accessories</p>
+<p>Men Clothing</p>
+<p>Women Clothing</p>
+<p>Accessories</p>
+
+<p>Personal Care</p>
+
+<p>Sports & Fitness</p>
+
+<p>Books & Stationery</p>
+
+<p>Home Utility & Organisers</p>
+<p>Bags & More</p>
+<p>School Supplies</p>
+
+<p>Footwear</p>
+<p>Men's Footwear</p>
+<p>Women's Footwear</p>
+
+<p>Baby & Kids</p>
+<p>Diapering</p>
+<p>Baby Care</p>
+<p>Baby Food</p>
+<p>Baby Gear & Furniture</p>
+            </div>
+        </div>
+     </section>
+
+     <section class="L-footer">
+        <div class="L-left-footer">
+            <p>Download DMart Ready Mobile App Now!!</p>
+            <div class="L-left-app">
+                <img src="image/android store.webp" alt="">
+                <img src="image/apple-store.webp" alt="">
+            </div>
+            <div class="L-left-pay">
+                <img src="image/rupay.svg" alt="">
+                <img src="image/visa.svg" alt="">
+                <img src="image/american.svg" alt="">
+                <img src="image/cash_outlined.svg" alt="">
+                <img src="image/mastercard.svg" alt="">
+            </div>
+
+        </div>
+            <!-- right footer -->
+             <div class="R-footer">
+                <a href="">FAQs</a>
+                <a href="">Privacy Policy</a>
+                <a href="">Pricing, Delivery,Return and Refund Policy</a>
+                <a href="">Terms and Conditon</a>
+                <a href="">Disclaimer</a>
+                <a href="">contact Us</a>
+                <a href="">About Us</a>
+                <a href="">Join Us</a>
+                <a href="">Pickup Points</a>
+             </div>
+     </section>
+     <div class="copyright">
+        <p>Copyright © 2026 Avenue E-Commerce Limited (AEL). All Rights Reserved.</p>
+     </div>
+
+    </footer>
+
+<script src="scripts.js"></script>
+</body>
+
+</html>
+
+

@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Cart</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background-color: white;
+            padding: 10px 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            width: 100px;
+        }
+
+        .logo img {
+            width: 100px;
+        }
+
+        .location {
+            width: 125px;
+            padding: 6px 10px;
+        }
+
+        .location div {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .location div i:first-child {
+            color: #249b45;
+        }
+
+        .location div i:last-child {
+            font-size: 13px;
+        }
+
+        .location small {
+            display: block;
+            margin-left: 20px;
+            margin-top: 2px;
+            font-size: 9px;
+            color: #777;
+        }
+
+
+        .delivery {
+            width: 205px;
+            padding: 5px 10px;
+            font-size: 10px;
+            white-space: nowrap;
+        }
+
+        .delivery span {
+            display: block;
+            font-size: 11px;
+        }
+
+        .delivery b {
+            color: #249b45;
+        }
+
+        .delivery strong {
+            display: block;
+            margin-top: 3px;
+            font-size: 10px;
+        }
+
+        .delivery i {
+            color: #249b45;
+        }
+
+        /* Search */
+        .search-box {
+            flex: 1;
+            height: 38px;
+
+            display: flex;
+            align-items: center;
+
+            position: relative;
+
+            margin: 0 10px;
+
+            background: #fff;
+            border: 1px solid #999;
+            border-radius: 6px;
+
+            overflow: hidden;
+        }
+
+
+        /* Input */
+
+        .search-box input {
+            width: 100%;
+            height: 100%;
+
+            border: none;
+            outline: none;
+
+            padding: 0 85px 0 12px;
+
+            font-size: 12px;
+
+            background: transparent;
+
+            position: relative;
+            z-index: 2;
+        }
+
+
+        /* Animated Text */
+
+        #placeholderText {
+            position: absolute;
+
+            left: 80px;
+            top: 50%;
+
+            transform: translateY(30px);
+
+            color: #777;
+            font-size: 12px;
+
+            pointer-events: none;
+
+            z-index: 1;
+
+            transition:
+                transform 0.5s ease,
+                opacity 0.5s ease;
+        }
+
+        #placeholderText.move-up {
+            transform: translateY(-50%);
+            opacity: 0;
+        }
+
+
+        /* Search Button */
+
+        .search-box button {
+            position: absolute;
+
+            right: 0;
+            top: 0;
+
+            width: 72px;
+            height: 100%;
+
+            border: none;
+
+            background: #249b45;
+            color: white;
+
+            font-size: 10px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            z-index: 3;
+        }
+
+        .search-box button:hover {
+            background: #1d843b;
+        }
+
+        .search-box button {
+            width: 72px;
+            border: none;
+            background-color: #249b45;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+
+        .cart-btn {
+            position: relative;
+            outline: none;
+            border: none;
+            background-color: rgb(9, 152, 35);
+            color: white;
+            font-size: 25px;
+            padding: 12px;
+            border-radius: 5px;
+            width: 80px;
+            height: 40px;
+            cursor: pointer;
+            gap: 50px;
+        }
+
+        .cart-btn span {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: white;
+            border: 1px solid black;
+            text-align: center;
+            color: rgb(7, 36, 2);
+            font-size: 15px;
+            font-weight: bold;
+            padding-top: 5px;
+        }
+
+        .cart-btn i{
+            font-size: 20px;
+            text-align: center;
+
+        }
+
+        #cartTotal {
+            font-size: 20px;
+            font-weight: bold;
+            color: green;
+            text-align: center;
+        }
+
+
+        .page {
+            display: flex;
+            min-height: calc(100vh - 110px);
+        }
+
+
+        .sidebar {
+            width: 270px;
+            min-width: 270px;
+
+            border-right: 1px solid #ddd;
+
+            background: #fff;
+        }
+
+
+        .sidebar-title {
+            height: 52px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 28px;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            border-bottom: 1px solid #ddd;
+        }
+
+
+        .category-item {
+            height: 55px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 28px;
+
+            border-bottom: 1px solid #ddd;
+
+            color: #777;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+
+        .category-item:hover {
+            background: #f5f5f5;
+            color: #249b45;
+        }
+
+
+        .category-item.active {
+            color: #249b45;
+
+            font-weight: bold;
+
+            background: #fff;
+        }
+
+
+        .sub-category {
+            height: 50px;
+
+            display: flex;
+            align-items: center;
+
+            padding-left: 40px;
+
+            background: #f6f6f6;
+
+            color: #777;
+
+            font-size: 15px;
+
+            border-bottom: 1px solid #eee;
+        }
+
+
+        .main-content {
+            flex: 1;
+
+            min-width: 0;
+
+            background-color: #f5f5f5;
+
+            padding: 25px 25px 40px;
+        }
+
+
+        #filters {
+            width: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            flex-wrap: nowrap;
+
+            overflow-x: auto;
+
+            padding: 0 0 20px 0;
+
+            margin-bottom: 0;
+        }
+
+
+        /* Hide scrollbar */
+
+        #filters::-webkit-scrollbar {
+            height: 0;
+        }
+
+
+        #filters button {
+            flex-shrink: 0;
+
+            margin: 0;
+
+            padding: 11px 18px;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+            background-color: black;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 5px;
+
+            white-space: nowrap;
+
+            transition: 0.2s;
+        }
+
+
+        #filters button:hover {
+            background-color: #249b45;
+        }
+
+
+        .products {
+            width: 100%;
+
+            display: grid;
+
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+
+            gap: 14px;
+        }
+
+
+        .card {
+            background-color: white;
+
+            border: 1px solid #ddd;
+
+            border-radius: 9px;
+
+            padding: 14px;
+
+            text-align: center;
+
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+            min-width: 0;
+
+            transition: 0.2s;
+        }
+
+
+        .card:hover {
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+        }
+
+
+        .card img {
+            width: 100%;
+
+            height: 240px;
+
+            object-fit: contain;
+
+            border-radius: 5px;
+
+            display: block;
+
+            margin: auto;
+        }
+
+
+        .card h3 {
+            margin: 14px 0 12px;
+
+            font-size: 20px;
+
+            line-height: 1.25;
+
+            min-height: 50px;
+        }
+
+
+
+        .mrp {
+            text-decoration: line-through;
+
+            color: #888;
+
+            font-size: 16px;
+
+            margin: 8px 0;
+        }
+
+
+
+        .offer {
+            color: #159b32;
+
+            font-size: 21px;
+
+            font-weight: bold;
+
+            margin: 12px 0;
+        }
+
+
+        .card p:not(.mrp):not(.offer) {
+            font-size: 16px;
+
+            line-height: 1.4;
+
+            margin: 10px 0;
+        }
+
+
+    
+
+        .add-btn {
+            padding: 12px 20px;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            background-color: #008f15;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 5px;
+
+            margin-top: 8px;
+
+            transition: 0.2s;
+        }
+
+
+        .add-btn:hover {
+            background-color: #006f10;
+        }
+
+
+        .quantity-box {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin: 12px 0;
+        }
+
+
+        .quantity-box button {
+            width: 35px;
+
+            height: 35px;
+
+            padding: 5px;
+
+            font-size: 18px;
+
+            cursor: pointer;
+
+            background-color: black;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 5px;
+        }
+
+
+        .quantity-box span {
+            font-size: 18px;
+
+            font-weight: bold;
+        }
+
+
+        .remove-btn {
+            padding: 9px 15px;
+
+            font-size: 14px;
+
+            background-color: red;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+        }
+
+
+
+
+        @media (max-width: 1200px) {
+
+            .sidebar {
+                width: 230px;
+                min-width: 230px;
+            }
+
+            .products {
+                grid-template-columns: repeat(4, minmax(180px, 1fr));
+            }
+
+            .card img {
+                height: 200px;
+            }
+
+        }
+
+
+
+        @media (max-width: 900px) {
+
+            .header {
+                height: auto;
+
+                gap: 20px;
+
+                flex-wrap: wrap;
+            }
+
+            .sidebar {
+                width: 210px;
+                min-width: 210px;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, minmax(180px, 1fr));
+            }
+
+            #filters {
+                flex-wrap: wrap;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .header {
+                flex-direction: column;
+
+                padding: 15px;
+            }
+
+            .header h2 {
+                font-size: 24px;
+            }
+
+            #cartTotal {
+                font-size: 22px;
+            }
+
+            .page {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                min-width: 100%;
+            }
+
+            .main-content {
+                padding: 15px;
+            }
+
+            #filters {
+                flex-wrap: wrap;
+            }
+
+            #filters button {
+                font-size: 13px;
+
+                padding: 9px 12px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- Header -->
+
+    <div class="header">
+
+        <div class="logo">
+            <img src="image/logo.svg" />
+        </div>
+
+        <div class="location">
+            <div>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>ShivajiNagar</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <small>Pune, India</small>
+        </div>
+
+        <div class="delivery">
+            <span>Earliest <b>Home Delivery</b> available</span>
+            <strong>
+                <i class="fa-regular fa-clock"></i>
+                Tomorrow 07:00 AM - 10:00 AM
+            </strong>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search for" aria-label="Search products">
+            <span id="placeholderText">Biscuits</span>
+            <button type="button">SEARCH</button>
+
+        </div>
+
+        <button class="cart-btn">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span id="count">0</span>
+
+        </button>
+
+        <div id="cartTotal">
+            Total: ₹0
+        </div>
+
+    </div>
+
+    <div class="page">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-title">
+                Grocery
+            </div>
+
+            <div class="category-item">
+                Cooking Oil (76)
+            </div>
+
+            <div class="category-item">
+                Ghee & Vanaspati (26)
+            </div>
+
+            <div class="category-item">
+                Rice (44)
+            </div>
+
+            <div class="category-item">
+                Masala & Spices (239)
+            </div>
+
+            <div class="category-item">
+                Flours & Grains (67)
+            </div>
+
+            <div class="category-item">
+                Dals (41)
+            </div>
+
+            <div class="category-item">
+                Dry Fruits (80)
+            </div>
+
+            <div class="category-item">
+                Salt / Sugar / Jaggery (26)
+            </div>
+
+            <div class="category-item">
+                Pulses (54)
+            </div>
+
+            <div class="category-item">
+                Rice Products (20)
+            </div>
+
+            <div class="category-item active">
+                DMart Grocery (193)
+            </div>
+
+            <div class="sub-category">
+                Dals & Pulses
+            </div>
+
+            <div class="sub-category">
+                Dry Fruits
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main-content">
+            <div id="filters"></div>
+            <div class="products" id="products"></div>
+        </main>
+
+    </div>
+
+    <script>
+
+        let products = [
+
+            {
+                id: 1,
+                image: './image/sugar.jpg',
+                productname: 'DMart Premium Sugar : 5 kgs',
+                mrp: 388,
+                offerPrice: 325,
+                category: 'Pulses',
+                weight: '5 kg',
+                quantityText: '5 kg (₹65.00 / 1 kg)',
+                offer: 63
+            },
+
+            {
+                id: 18,
+                image: './image/toordal.jpg',
+                productname: 'DMart Premium DAL : 10 kgs',
+                mrp: 399,
+                offerPrice: 355,
+                category: 'Pulses',
+                weight: '10 kg',
+                quantityText: '5 kg (₹75.00 / 1 kg)',
+                offer: 65
+            },
+
+            {
+                id: 19,
+                image: './image/kidneybeans.jpg',
+                productname: 'DMart Premium KidneyBeans : 10 kgs',
+                mrp: 399,
+                offerPrice: 355,
+                category: 'Pulses',
+                weight: '10 kg',
+                quantityText: '5 kg (₹75.00 / 1 kg)',
+                offer: 65
+            },
+
+            {
+                id: 19,
+                image: './image/matki.jpg',
+                productname: 'DMart Premium Matki : 10 kgs',
+                mrp: 399,
+                offerPrice: 355,
+                category: 'Pulses',
+                weight: '10 kg',
+                quantityText: '5 kg (₹75.00 / 1 kg)',
+                offer: 65
+            },
+
+            {
+                id: 20,
+                image: './image/chole.jpg',
+                productname: 'DMart Premium Big Gram : 10 kgs',
+                mrp: 399,
+                offerPrice: 355,
+                category: 'Pulses',
+                weight: '10 kg',
+                quantityText: '5 kg (₹75.00 / 1 kg)',
+                offer: 65
+            },
+
+            {
+                id: 21,
+                image: './image/soya.jpg',
+                productname: 'DMart Premium SOYA : 10 kgs',
+                mrp: 399,
+                offerPrice: 355,
+                category: 'Pulses',
+                weight: '10 kg',
+                quantityText: '5 kg (₹75.00 / 1 kg)',
+                offer: 65
+            },
+
+            {
+                id: 22,
+                image: './image/blackbeans.jpg',
+                productname: 'DMart Premium BlackBeans : 10 kgs',
+                mrp: 399,
+                offerPrice: 355,
+                category: 'Pulses',
+                weight: '10 kg',
+                quantityText: '5 kg (₹75.00 / 1 kg)',
+                offer: 65
+            },
+
+
+            {
+                id: 2,
+                image: './image/wheat.jpg',
+                productname: 'Wheat Lokwan (Lokvan) : 10 kgs',
+                mrp: 570,
+                offerPrice: 427,
+                category: 'Flours & Grains',
+                weight: '10 kg',
+                quantityText: '10 kg (₹42.70 / 1 kg)',
+                offer: 143
+            },
+
+            {
+                id: 5,
+                image: './image/bajra.jpg',
+                productname: 'Dmart Premium Bajra : 10 kgs',
+                mrp: 570,
+                offerPrice: 427,
+                category: 'Flours & Grains',
+                weight: '10 kg',
+                quantityText: '10 kg (₹42.70 / 1 kg)',
+                offer: 143
+            },
+            {
+                id: 3,
+                image: './image/jowar.jpg',
+                productname: 'Dmart Premium Jowar Flour : 10 kgs',
+                mrp: 570,
+                offerPrice: 427,
+                category: 'Flours & Grains',
+                weight: '10 kg',
+                quantityText: '10 kg (₹42.70 / 1 kg)',
+                offer: 143
+            },
+
+            {
+                id: 11,
+                image: './image/sambarmasala.jpg',
+                productname: 'Dmart Premium Sambar Masala : 10 kgs',
+                mrp: 570,
+                offerPrice: 427,
+                category: 'Flours & Grains',
+                weight: '10 kg',
+                quantityText: '10 kg (₹42.70 / 1 kg)',
+                offer: 143
+            },
+
+            {
+                id: 4,
+                image: './image/jeerarice.jpg',
+                productname: 'Dmart Premium Rice Flour (Lokvan) : 2 kgs',
+                mrp: 150,
+                offerPrice: 100,
+                category: 'Flours & Grains',
+                weight: '2 kg',
+                quantityText: '2 kg (₹49.70 / 1 kg)',
+                offer: 50
+            },
+
+            {
+                id: 6,
+                image: './image/gramflour.jpg',
+                productname: 'Dmart Premium Gram Flour : 5 kgs',
+                mrp: 350,
+                offerPrice: 230,
+                category: 'Flours & Grains',
+                weight: '5 kg',
+                quantityText: '5 kg (₹42.70 / 1 kg)',
+                offer: 143
+            },
+
+            {
+                id: 7,
+                image: './image/besan.jpg',
+                productname: 'Dmart Premium Gram Flour : 5 kgs',
+                mrp: 350,
+                offerPrice: 230,
+                category: 'Flours & Grains',
+                weight: '5 kg',
+                quantityText: '5 kg (₹42.70 / 1 kg)',
+                offer: 143
+            },
+
+            {
+                id: 9,
+                image: './image/jowari.jpg',
+                productname: 'Dmart Premium Jowar(grain) : 5 kgs',
+                mrp: 350,
+                offerPrice: 230,
+                category: 'Flours & Grains',
+                weight: '5 kg',
+                quantityText: '5 kg (₹42.70 / 1 kg)',
+                offer: 143
+            },
+
+            {
+                id: 10,
+                image: './image/rice.jpg',
+                productname: 'Dmart Premium jeera Rice : 5 kgs',
+                mrp: 350,
+                offerPrice: 230,
+                category: 'Flours & Grains',
+                weight: '5 kg',
+                quantityText: '5 kg (₹42.70 / 1 kg)',
+                offer: 143
+            },
+
+            {
+                id: 8,
+                image: './image/basamatiRice.jpg',
+                productname: 'Dmart Premium Basmati Rice : 5 kgs',
+                mrp: 350,
+                offerPrice: 230,
+                category: 'Flours & Grains',
+                weight: '5 kg',
+                quantityText: '5 kg (₹42.70 / 1 kg)',
+                offer: 143
+            },
+
+            {
+                id: 12,
+                image: './image/bajri.jpg',
+                productname: 'Dmart Premium Bajra : 10 kgs',
+                mrp: 570,
+                offerPrice: 427,
+                category: 'Flours & Grains',
+                weight: '10 kg',
+                quantityText: '10 kg (₹42.70 / 1 kg)',
+                offer: 143
+            },
+
+            {
+                id: 13,
+                image: './image/nachni.jpg',
+                productname: 'Dmart Premium Nachni : 10 kgs',
+                mrp: 570,
+                offerPrice: 427,
+                category: 'Flours & Grains',
+                weight: '10 kg',
+                quantityText: '10 kg (₹42.70 / 1 kg)',
+                offer: 143
+            },
+
+            {
+                id: 46,
+                image: './image/choleb.jpg',
+                productname: 'DMart Premium Chole : 500 g',
+                mrp: 130,
+                offerPrice: 95,
+                category: 'Pulses',
+                weight: '500 g',
+                quantityText: '500 g (₹0.19 / 1 g)',
+                offer: 35
+            },
+
+            {
+                id: 26,
+                image: './image/gram.jpg',
+                productname: 'DMart Premium Gram : 500 g',
+                mrp: 130,
+                offerPrice: 95,
+                category: 'Pulses',
+                weight: '500 g',
+                quantityText: '500 g (₹0.19 / 1 g)',
+                offer: 35
+            },
+
+            {
+                id: 27,
+                image: './image/haramatar.jpg',
+                productname: 'DMart Premium Haramatar : 500 g',
+                mrp: 130,
+                offerPrice: 95,
+                category: 'Pulses',
+                weight: '500 g',
+                quantityText: '500 g (₹0.19 / 1 g)',
+                offer: 35
+            },
+
+            {
+                id: 60,
+                image: './image/sudhadal.jpg',
+                productname: 'DMart Premium sudhadal : 500 g',
+                mrp: 460,
+                offerPrice: 390,
+                category: 'Pulses',
+                weight: '500 g',
+                quantityText: '500 g (₹20 / 1 g)',
+                offer: 40
+            },
+
+            {
+                id: 61,
+                image: './image/moongdal.jpg',
+                productname: 'DMart Premium moongdal : 500 g',
+                mrp: 130,
+                offerPrice: 95,
+                category: 'Pulses',
+                weight: '500 g',
+                quantityText: '500 g (₹0.19 / 1 g)',
+                offer: 35
+            },
+
+            {
+                id: 47,
+                image: './image/Button Mushroom.jpg',
+                productname: 'DMart Premium Badam (Almonds) : 500 g',
+                mrp: 810,
+                offerPrice: 535,
+                category: 'Dry Fruits',
+                weight: '500 g',
+                quantityText: '500 g (₹1.07 / 1 g)',
+                offer: 275
+            },
+
+            {
+                id: 65,
+                image: './image/badam.jpg',
+                productname: 'DMart Premium Badam (Almonds) : 500 g',
+                mrp: 810,
+                offerPrice: 535,
+                category: 'Dry Fruits',
+                weight: '500 g',
+                quantityText: '500 g (₹1.07 / 1 g)',
+                offer: 275
+            },
+
+            {
+                id: 66,
+                image: './image/almond.jpg',
+                productname: 'DMart Premium Badam (Almonds) : 500 g',
+                mrp: 810,
+                offerPrice: 535,
+                category: 'Dry Fruits',
+                weight: '500 g',
+                quantityText: '500 g (₹1.07 / 1 g)',
+                offer: 275
+            },
+
+            {
+                id: 67,
+                image: './image/pista.jpg',
+                productname: 'DMart Premium Pista (pistachio) : 500 g',
+                mrp: 810,
+                offerPrice: 535,
+                category: 'Dry Fruits',
+                weight: '500 g',
+                quantityText: '500 g (₹1.07 / 1 g)',
+                offer: 275
+            },
+
+            {
+                id: 68,
+                image: './image/dates.jpg',
+                productname: 'DMart Premium Dates : 500 g',
+                mrp: 810,
+                offerPrice: 535,
+                category: 'Dry Fruits',
+                weight: '500 g',
+                quantityText: '500 g (₹1.07 / 1 g)',
+                offer: 275
+            },
+
+            {
+                id: 69,
+                image: './image/pistachio.jpg',
+                productname: 'DMart Premium Pista : 500 g',
+                mrp: 810,
+                offerPrice: 535,
+                category: 'Dry Fruits',
+                weight: '500 g',
+                quantityText: '500 g (₹1.07 / 1 g)',
+                offer: 275
+            },
+
+            {
+                id: 48,
+                image: './image/Cabbage (Kobi).jpg',
+                productname: 'DMart Premium Cabbage',
+                mrp: 100,
+                offerPrice: 75,
+                category: 'vegatables',
+                weight: '1 kg',
+                quantityText: '1 kg',
+                offer: 25
+            },
+
+            {
+                id: 49,
+                image: './image/capsicum.png',
+                productname: 'DMart Premium Capsicum',
+                mrp: 120,
+                offerPrice: 90,
+                category: 'vegatables',
+                weight: '500 g',
+                quantityText: '500 g',
+                offer: 30
+            },
+
+            {
+                id: 50,
+                image: './image/carrot.jpg',
+                productname: 'Fresh Carrot',
+                mrp: 80,
+                offerPrice: 60,
+                category: 'vegatables',
+                weight: '1 kg',
+                quantityText: '1 kg',
+                offer: 20
+            },
+
+            {
+                id: 51,
+                image: './image/cauliflower.png',
+                productname: 'Fresh Cauliflower',
+                mrp: 70,
+                offerPrice: 50,
+                category: 'vegatables',
+                weight: '1 piece',
+                quantityText: '1 piece',
+                offer: 20
+            },
+
+            {
+                id: 52,
+                image: './image/cucumber.jpg',
+                productname: 'Fresh Cucumber',
+                mrp: 60,
+                offerPrice: 45,
+                category: 'vegatables',
+                weight: '1 kg',
+                quantityText: '1 kg',
+                offer: 15
+            },
+
+            {
+                id: 53,
+                image: './image/French Fresh Beans (Farasbi).jpg',
+                productname: 'French Fresh Beans',
+                mrp: 100,
+                offerPrice: 80,
+                category: 'vegatables',
+                weight: '500 g',
+                quantityText: '500 g',
+                offer: 20
+            },
+
+            {
+                id: 54,
+                image: './image/Garlic (Lasun).jpg',
+                productname: 'Fresh Garlic',
+                mrp: 180,
+                offerPrice: 150,
+                category: 'vegatables',
+                weight: '500 g',
+                quantityText: '500 g',
+                offer: 30
+            },
+
+            {
+                id: 55,
+                image: './image/Ginger (Ale).jpg',
+                productname: 'Fresh Ginger',
+                mrp: 160,
+                offerPrice: 130,
+                category: 'vegatables',
+                weight: '500 g',
+                quantityText: '500 g',
+                offer: 30
+            },
+
+            {
+                id: 56,
+                image: './image/Green Capsicum (Shimla Mirch).jpg',
+                productname: 'Green Capsicum',
+                mrp: 100,
+                offerPrice: 80,
+                category: 'vegatables',
+                weight: '500 g',
+                quantityText: '500 g',
+                offer: 20
+            },
+
+            {
+                id: 57,
+                image: './image/Green Peas (Matar).jpg',
+                productname: 'Green Peas',
+                mrp: 140,
+                offerPrice: 110,
+                category: 'vegatables',
+                weight: '500 g',
+                quantityText: '500 g',
+                offer: 30
+            },
+
+            {
+                id: 58,
+                image: './image/lady-finger.jpg',
+                productname: 'Lady Finger',
+                mrp: 80,
+                offerPrice: 60,
+                category: 'vegatables',
+                weight: '500 g',
+                quantityText: '500 g',
+                offer: 20
+            },
+
+            {
+                id: 59,
+                image: './image/lemon.jpg',
+                productname: 'Fresh Lemon',
+                mrp: 80,
+                offerPrice: 65,
+                category: 'vegatables',
+                weight: '500 g',
+                quantityText: '500 g',
+                offer: 15
+            },
+
+            {
+                id: 60,
+                image: './image/mirchi.jpg',
+                productname: 'Green Chilli',
+                mrp: 90,
+                offerPrice: 70,
+                category: 'vegatables',
+                weight: '500 g',
+                quantityText: '500 g',
+                offer: 20
+            },
+
+            {
+                id: 61,
+                image: './image/onion.jpg',
+                productname: 'Fresh Onion',
+                mrp: 60,
+                offerPrice: 45,
+                category: 'vegatables',
+                weight: '1 kg',
+                quantityText: '1 kg',
+                offer: 15
+            },
+
+            {
+                id: 71,
+                image: './image/peanuts.jpg',
+                productname: 'DMart Premium Peanuts : 500 g',
+                mrp: 810,
+                offerPrice: 535,
+                category: 'Dry Fruits',
+                weight: '500 g',
+                quantityText: '500 g (₹1.07 / 1 g)',
+                offer: 275
+            },
+
+            {
+                id: 72,
+                image: './image/nuts.jpg',
+                productname: 'DMart Premium GroundNuts : 500 g',
+                mrp: 810,
+                offerPrice: 535,
+                category: 'Dry Fruits',
+                weight: '500 g',
+                quantityText: '500 g (₹1.07 / 1 g)',
+                offer: 275
+            },
+
+            {
+                id: 73,
+                image: './image/chia.jpg',
+                productname: 'DMart Premium chia Seeds : 500 g',
+                mrp: 810,
+                offerPrice: 535,
+                category: 'Dry Fruits',
+                weight: '500 g',
+                quantityText: '500 g (₹1.07 / 1 g)',
+                offer: 275
+            },
+
+            {
+                id: 62,
+                image: './image/potato.jpg',
+                productname: 'Fresh Potato',
+                mrp: 50,
+                offerPrice: 40,
+                category: 'vegatables',
+                weight: '1 kg',
+                quantityText: '1 kg',
+                offer: 10
+            },
+
+            {
+                id: 63,
+                image: './image/tomato.jpg',
+                productname: 'Fresh Tomato',
+                mrp: 70,
+                offerPrice: 55,
+                category: 'vegatables',
+                weight: '1 kg',
+                quantityText: '1 kg',
+                offer: 15
+            },
+
+            {
+                id: 77,
+                image: './image/anjeer.jpg',
+                productname: 'DMart Premium Anjeer : 500 g',
+                mrp: 810,
+                offerPrice: 535,
+                category: 'Dry Fruits',
+                weight: '500 g',
+                quantityText: '500 g (₹1.07 / 1 g)',
+                offer: 275
+            },
+            {
+                id: 76,
+                image: './image/masalapeanut.jpg',
+                productname: 'DMart Premium Masala-Peanut : 500 g',
+                mrp: 810,
+                offerPrice: 535,
+                category: 'Dry Fruits',
+                weight: '500 g',
+                quantityText: '500 g (₹1.07 / 1 g)',
+                offer: 275
+            },
+
+            {
+                id: 75,
+                image: './image/walnut.jpg',
+                productname: 'DMart Premium Walnuts : 500 g',
+                mrp: 810,
+                offerPrice: 535,
+                category: 'Dry Fruits',
+                weight: '500 g',
+                quantityText: '500 g (₹1.07 / 1 g)',
+                offer: 275
+            }
+        ];
+
+
+        const placeholderText =
+            document.getElementById("placeholderText");
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+        const searchTexts = [
+            "Biscuits",
+            "Milk",
+            "Curd",
+            "Onion",
+            "Potato",
+            "Garlic"
+        ];
+
+        let searchTextIndex = 0;
+
+        function changeSearchText() {
+            placeholderText.classList.add("move-up");
+
+            setTimeout(() => {
+
+                searchTextIndex++;
+
+                if (searchTextIndex >= searchTexts.length) {
+                    searchTextIndex = 0;
+                }
+                placeholderText.innerText =
+                    searchTexts[searchTextIndex];
+
+                placeholderText.style.transition = "none";
+                placeholderText.style.transform =
+                    "translateY(30px)";
+                placeholderText.style.opacity = "0";
+
+                setTimeout(() => {
+                    placeholderText.style.transition =
+                        "transform 0.5s ease, opacity 0.5s ease";
+                    placeholderText.style.transform =
+                        "translateY(-50%)";
+                    placeholderText.style.opacity = "1";
+                }, 50);
+
+            }, 500);
+        }
+        setInterval(changeSearchText, 2000);
+        searchInput.addEventListener("focus", () => {
+            placeholderText.style.display = "none";
+
+        });
+
+        searchInput.addEventListener("blur", () => {
+            if (searchInput.value.trim() === "") {
+                placeholderText.style.display = "block";
+            }
+
+        });
+        // ==============================
+        // CART
+        // ==============================
+
+        let cart = [];
+
+
+        // ==============================
+        // DELIVERY DATE
+        // ==============================
+
+        function deliveryDate() {
+
+            let date = new Date();
+
+            date.setDate(date.getDate() + 5);
+
+            return date.toLocaleDateString(
+                "en-IN",
+                {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric"
+                }
+            );
+
+        }
+
+
+
+        // ==============================
+        // CATEGORY BUTTONS
+        // ==============================
+
+        let categories = ["all"];
+
+        products.forEach(function (product) {
+
+            if (!categories.includes(product.category)) {
+
+                categories.push(product.category);
+
+            }
+
+        });
+
+        categories.forEach(function (category) {
+
+            document.getElementById("filters").innerHTML += `
+
+                <button onclick="filterProducts('${category}')">
+
+                    ${category.toUpperCase()}
+
+                </button>
+
+            `;
+
+        });
+
+
+        // ==============================
+        // DISPLAY PRODUCTS
+        // ==============================
+
+        function displayProducts(productList) {
+
+            let productContainer =
+                document.getElementById("products");
+
+            productContainer.innerHTML = "";
+
+            productList.forEach(function (product) {
+
+                let cartProduct = cart.find(function (item) {
+
+                    return item.id === product.id;
+
+                });
+
+                let quantity =
+                    cartProduct ? cartProduct.quantity : 0;
+
+
+                productContainer.innerHTML += `
+
+                    <div class="card">
+
+                        <img src="${product.image}">
+
+                        <h3>
+                            ${product.productname}
+                        </h3>
+
+                        <p class="mrp">
+
+                            MRP. &#8377;${product.mrp}
+
+                        </p>
+
+                        <p class="offer">
+
+                            &#8377;${product.offerPrice}
+
+                        </p>
+
+                        <p>
+
+                            Category:
+                            ${product.category}
+
+                        </p>
+
+                        <p>
+
+                            Delivery:
+                            ${deliveryDate()}
+
+                        </p>
+
+                        ${quantity === 0
+
+                        ?
+
+                        `
+
+                            <button
+                                class="add-btn"
+                                onclick="addToCart(${product.id})">
+
+                                Add To Cart
+
+                            </button>
+
+                            `
+
+                        :
+
+                        `
+
+                            <div class="quantity-box">
+
+                                <button
+                                    onclick="decreaseQuantity(${product.id})">
+
+                                    -
+
+                                </button>
+
+                                <span>
+
+                                    ${quantity}
+
+                                </span>
+
+                                <button
+                                    onclick="increaseQuantity(${product.id})">
+
+                                    +
+
+                                </button>
+
+                            </div>
+
+                            <button
+                                class="remove-btn"
+                                onclick="removeProduct(${product.id})">
+
+                                Remove
+
+                            </button>
+
+                            `
+                    }
+
+                    </div>
+
+                `;
+
+            });
+
+        }
+
+
+        // ==============================
+        // FILTER PRODUCTS
+        // ==============================
+
+        function filterProducts(category) {
+
+            if (category === "all") {
+
+                displayProducts(products);
+
+            }
+
+            else {
+
+                let filteredProducts =
+                    products.filter(function (product) {
+
+                        return product.category === category;
+
+                    });
+
+                displayProducts(filteredProducts);
+
+            }
+
+        }
+
+
+        // ==============================
+        // ADD TO CART
+        // ==============================
+
+        function addToCart(id) {
+
+            let selectProduct =
+                products.find(function (product) {
+
+                    return product.id === id;
+
+                });
+
+            cart.push({
+
+                id: selectProduct.id,
+
+                quantity: 1
+
+            });
+
+            updateCart();
+
+            displayProducts(products);
+
+        }
+
+
+        // ==============================
+        // INCREASE QUANTITY
+        // ==============================
+
+        function increaseQuantity(id) {
+
+            let product =
+                cart.find(function (item) {
+
+                    return item.id === id;
+
+                });
+
+            product.quantity++;
+
+            updateCart();
+
+            displayProducts(products);
+
+        }
+
+
+        // ==============================
+        // DECREASE QUANTITY
+        // ==============================
+
+        function decreaseQuantity(id) {
+
+            let product =
+                cart.find(function (item) {
+
+                    return item.id === id;
+
+                });
+
+            product.quantity--;
+
+            if (product.quantity === 0) {
+
+                removeProduct(id);
+
+            }
+
+            else {
+
+                updateCart();
+
+                displayProducts(products);
+
+            }
+
+        }
+
+
+        // ==============================
+        // REMOVE PRODUCT
+        // ==============================
+
+        function removeProduct(id) {
+
+            cart = cart.filter(function (item) {
+
+                return item.id !== id;
+
+            });
+
+            updateCart();
+
+            displayProducts(products);
+
+        }
+
+
+        // ==============================
+        // UPDATE CART COUNT + TOTAL
+        // ==============================
+
+        function updateCart() {
+
+            let totalQuantity = 0;
+
+            let totalAmount = 0;
+
+            cart.forEach(function (item) {
+
+                // Total quantity
+
+                totalQuantity =
+                    totalQuantity + item.quantity;
+
+
+                // Find product
+
+                let product =
+                    products.find(function (product) {
+
+                        return product.id === item.id;
+
+                    });
+
+                totalAmount =
+                    totalAmount +
+                    (product.offerPrice * item.quantity);
+
+            });
+
+
+            document.getElementById("count").innerHTML =
+                totalQuantity;
+
+            document.getElementById("cartTotal").innerHTML =
+
+                `Total: &#8377;${totalAmount}`;
+
+        }
+
+        displayProducts(products);
+
+        // Initial cart update
+
+        updateCart();
+
+    </script>
+
+</body>
+
+</html>

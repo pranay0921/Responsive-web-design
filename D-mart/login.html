@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign In / Register</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Main Login Box */
+
+        .login-container {
+            width: 720px;
+            height: 635px;
+            background-color: white;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Left Side */
+
+        .login-left {
+            width: 42%;
+            background-color: #c4e8cb;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Logo */
+
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 32px;
+        }
+
+        .logo img {
+            width: 80px;
+        }
+
+        /* Left Illustration */
+
+        .left-image {
+            width: 85%;
+            max-height: 450px;
+            object-fit: contain;
+        }
+
+        /* Right Side */
+
+        .login-right {
+            width: 58%;
+            background-color: white;
+            padding: 0 48px;
+            position: relative;
+        }
+
+        /* Close Button */
+
+        .close-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+
+            width: 38px;
+            height: 38px;
+
+            background-color: #777;
+            color: white;
+
+            border: none;
+            font-size: 25px;
+
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            background-color: #555;
+        }
+
+        /* Heading */
+
+        .login-title {
+            text-align: center;
+            font-size: 17px;
+            font-weight: 600;
+
+            padding: 18px 0;
+
+            border-bottom: 1px solid #eee;
+
+            margin-bottom: 28px;
+        }
+
+        /* Form */
+
+        .login-form {
+            width: 100%;
+        }
+
+        .login-form label {
+            display: block;
+            font-size: 13px;
+            color: #242323;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .login-form input {
+            width: 100%;
+            height: 40px;
+            border: 1px solid #d5d5d5;
+            border-radius: 5px;
+            padding: 0 12px;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .login-form input:focus {
+            border-color: #249b45;
+        }
+
+        .input-box {
+            margin-bottom: 20px;
+        }
+
+        /* Terms */
+
+        .terms {
+            font-size: 13px;
+            line-height: 21px;
+            color: #999;
+
+            margin-top: 8px;
+            margin-bottom: 30px;
+        }
+
+        .terms span {
+            color: #249b45;
+        }
+
+        /* Continue Button */
+
+        .continue-btn {
+            width: 100%;
+            height: 38px;
+
+            border: none;
+            border-radius: 5px;
+
+            background-color: #249b45;
+            color: white;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .continue-btn:hover {
+            background-color: #1d843b;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+
+            .login-container {
+                width: 95%;
+                height: auto;
+                min-height: 600px;
+            }
+
+            .login-left {
+                display: none;
+            }
+
+            .login-right {
+                width: 100%;
+                padding: 0 30px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <!-- LEFT SIDE -->
+
+        <div class="login-left">
+
+            <div class="logo">
+                <img src="image/logo.svg" alt="DMart Ready">
+            </div>
+
+            <!-- Put your illustration here -->
+            <img
+                src="image/LOGINn.png"
+                class="left-image"
+                alt="Shopping illustration"
+            >
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="login-right">
+
+            <button class="close-btn" onclick="closeLogin()">
+                &times;
+            </button>
+
+            <h2 class="login-title">
+                Let's Get You Logged In
+            </h2>
+
+
+            <form class="login-form" onsubmit="submited(event)">
+
+                <div class="input-box">
+
+                    <label>
+                        Enter your 10 digit Mobile Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="mobile"
+                        placeholder="+91"
+                        maxlength="10"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-box">
+
+                    <label>
+                        Enter your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-box">
+
+                    <label>
+                        Enter your Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-box">
+
+                    <label>
+                        Enter your Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+                <p class="terms">
+                    By continuing, you agree to our
+                    <span>Terms</span>,
+                    <span>Refunds</span>
+                    and
+                    <span>Privacy Policy</span>
+                </p>
+
+
+                <button
+                    type="submit"
+                    class="continue-btn"
+                >
+                    CONTINUE
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function submited(event) {
+
+            event.preventDefault();
+
+            let mobile = document.getElementById("mobile").value;
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            alert(
+                `Welcome ${name}!\nMobile: ${mobile}\nEmail: ${email}`
+            );
+        }
+
+
+       function closeLogin() {
+    if (window.parent !== window) {
+        window.parent.closeLoginForm();
+    } else {
+        window.location.href = "index.html";
+    }
+}
+
+    </script>
+    
+
+</body>
+
+</html>
