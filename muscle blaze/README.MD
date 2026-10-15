@@ -1,2 +1,2 @@
 MUSCLE BLAZE
-🔗 [Live Demo](https://pranay0921.github.io/Responsive-web-design/muscle blaze/)
+🔗 [Live Demo](https://pranay0921.github.io/Responsive-web-design/muscle%20blaze/)
